@@ -71,12 +71,14 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
     facet_wrap(~ hwy)
     # It generates a graph for each independent value in that
     # category
+
 # 2
 ggplot(data = mpg, mapping = aes(x = drv, y = cyl)) +
     geom_point() +
     facet_grid(drv ~ cyl)
     # The empty grids mean that there are no data points that 
     # correspond to that combination of drv and cyl
+
 # 3
 ggplot(data = mpg) + 
     geom_point(
@@ -87,16 +89,28 @@ ggplot(data = mpg) +
     # each category in the variable. It replaces the other variable
     # in the facet grid with empty space. The position of the 
     # period determines the orientation of the graphs.
+
 # 4
+    # Facet plot
 ggplot(data = mpg) + 
     geom_point(
         mapping = aes(x = displ, y = hwy)
     ) + 
     facet_wrap(~ class, nrow = 2)
+    # Color plot
 ggplot(data = mpg) +
     geom_point(
         mapping = aes(x = displ, y = hwy, color = class)
     )
+    # Using the facet plot you are able to see the data sets independent from
+    # one another. If you have many many variables for the organizing variable
+    # (in this case "class"), then you are better off with a 
+    # facet plot because eventually the colors may be similar shades.
+
+# 5
+    # nrow determines how many roews are in the facet wrap, and 
+    # ncol determines the number of columns.
+    # scales and shrink modify the appearence of the graph.
 
 
 
