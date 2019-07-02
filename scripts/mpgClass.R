@@ -68,7 +68,41 @@ ggplot(data = mpg) +
 # 1
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
     geom_point() +
-    facet_wrap(~ displ)
+    facet_wrap(~ hwy)
+    # It generates a graph for each independent value in that
+    # category
+# 2
+ggplot(data = mpg, mapping = aes(x = drv, y = cyl)) +
+    geom_point() +
+    facet_grid(drv ~ cyl)
+    # The empty grids mean that there are no data points that 
+    # correspond to that combination of drv and cyl
+# 3
+ggplot(data = mpg) + 
+    geom_point(
+        mapping = aes(x = displ, y = hwy)
+    ) +
+    facet_grid(drv ~ .)
+    # The period makes it so that there are independent plots for 
+    # each category in the variable. It replaces the other variable
+    # in the facet grid with empty space. The position of the 
+    # period determines the orientation of the graphs.
+# 4
+ggplot(data = mpg) + 
+    geom_point(
+        mapping = aes(x = displ, y = hwy)
+    ) + 
+    facet_wrap(~ class, nrow = 2)
+ggplot(data = mpg) +
+    geom_point(
+        mapping = aes(x = displ, y = hwy, color = class)
+    )
+
+
+
+
+
+
 
 
 
