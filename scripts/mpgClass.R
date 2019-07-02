@@ -60,9 +60,15 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
     geom_point(shape = 24, color = "black", fill = "white", stroke = 2)
 # 6
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy, color = displ < 5))
+    # classifies the color based on whether the displ variable is less than 5
+
+# 3.5.1 Exercises
+# 1
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
-    geom_point()
-    
+    geom_point() +
+    facet_wrap(~ displ)
 
 
 
